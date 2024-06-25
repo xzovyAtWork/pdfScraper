@@ -12,6 +12,8 @@ def scrape_PDF(*fileName):
     technicianInfo = signOffPage.extract_text().split('SIGNATURE  DATE')
     signedOffBy = technicianInfo[1]
 
+    outputData = unitInfo + ' ' + signedOffBy
+
     print(unitInfo)
     print(signedOffBy)
-    return unitInfo, signedOffBy
+    return outputData
