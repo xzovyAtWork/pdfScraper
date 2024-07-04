@@ -1,9 +1,11 @@
 from pypdf import PdfReader
+import sys
 
-
-def scrape_PDF(*fileName):   
-    reader = PdfReader('3936-60L FT.pdf')
-    # reader = PdfReader(fileName)
+input_arg = sys.argv[1]
+# print(f"Recieved argument: {input_arg}")
+def scrape_PDF(fileName):   
+    # reader = PdfReader('3936-60L FT.pdf')
+    reader = PdfReader(fileName)
 
     unitNumber = reader.pages[0]
     signOffPage = reader.pages[11]
@@ -14,6 +16,8 @@ def scrape_PDF(*fileName):
 
     outputData = unitInfo + ' ' + signedOffBy
 
-    print(unitInfo)
-    print(signedOffBy)
+
+    print(outputData)
     return outputData
+
+scrape_PDF(input_arg)
